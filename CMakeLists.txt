@@ -21,6 +21,22 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
 )
 
+add_message_files(
+   FILES
+   Shape.msg
+)
+
+add_service_files(
+   FILES
+   AreaData.srv
+)
+
+## Generate added messages and services with any dependencies listed here
+ generate_messages(
+   DEPENDENCIES
+   std_msgs  # Or other packages containing msgs
+ )
+
 catkin_package(
   INCLUDE_DIRS include/${PROJECT_NAME}/
   LIBRARIES ${PROJECT_NAME}
@@ -29,18 +45,30 @@ catkin_package(
 
 include_directories(include/${PROJECT_NAME}/ ${catkin_INCLUDE_DIRS})
 link_directories(${catkin_LIBRARY_DIRS})
+include_directories(src/)
+include_directories(${CMAKE_CURRENT_BINARY_DIR}/src)
+include_directories(${CMAKE_INSTALL_PREFIX}/include) # this line is to find lemon include files.
 
 set(area_SOURCES
+	src/CreateArea.cpp
         src/SendArea.cpp
-        
 )
 
-add_executable(Analysis ${area_SOURCES})
-target_link_libraries(Analysis ${catkin_LIBRARIES})
-add_dependencies(Analysis ${PROJECT_NAME}_gencpp)
+add_library(${PROJECT_NAME} SHARED ${area_SOURCES})
+target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} lemon)
+add_dependencies(${PROJECT_NAME} ${PROJECT_NAME}_gencpp base_math lemon)
 
-install(TARGETS Analysis
- EXPORT nostop_analysis
-    RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
- )
+add_executable(${PROJECT_NAME}_node ${area_SOURCES})
+target_link_libraries(${PROJECT_NAME}_node ${catkin_LIBRARIES} base_math lemon)
+add_dependencies(${PROJECT_NAME}_node ${PROJECT_NAME}_gencpp base_math lemon)
 
+install(DIRECTORY include/${PROJECT_NAME}/
+  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+)
+
+install(TARGETS ${PROJECT_NAME} ${PROJECT_NAME}_node
+         EXPORT ${PROJECT_NAME}
+         ARCHIVE DESTINATION "${CATKIN_PACKAGE_BIN_DESTINATION}" COMPONENT lib
+         RUNTIME DESTINATION "${CATKIN_PACKAGE_BIN_DESTINATION}" COMPONENT bin
+         LIBRARY DESTINATION "${CATKIN_PACKAGE_LIB_DESTINATION}" COMPONENT shlib
+)
