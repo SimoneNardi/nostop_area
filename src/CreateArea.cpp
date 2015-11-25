@@ -4,24 +4,24 @@
 void Create_StudioLucia(std::vector<Real2D> &external, std::vector< std::vector<Real2D> > &internal)
 {
   // Collect point from rviz or read configuration file if not available
-  external.push_back(Real2D (-207.5,-201.5));
-  external.push_back(Real2D (111.5,-201.5));
-  external.push_back(Real2D (111.5,-118.5));
-  external.push_back(Real2D (38.5,-118.5));
-  external.push_back(Real2D (38.5,-114.5));
-  external.push_back(Real2D (207.5,-114.5));
-  external.push_back(Real2D (207.5,201.5));
-  external.push_back(Real2D (162.5,201.5));
-  external.push_back(Real2D (162.5,151.5));
-  external.push_back(Real2D (-17.5,151.5));
-  external.push_back(Real2D (-17.5,201.5));
-  external.push_back(Real2D (-207.5,201.5));
+  external.push_back(Real2D (-2.075,-2.015));
+  external.push_back(Real2D (1.115,-2.015));
+  external.push_back(Real2D (1.115,-1.185));
+  external.push_back(Real2D (.385,-1.185));
+  external.push_back(Real2D (.385,-1.145));
+  external.push_back(Real2D (2.075,-1.145));
+  external.push_back(Real2D (2.075,2.015));
+  external.push_back(Real2D (1.625,2.015));
+  external.push_back(Real2D (1.625,1.515));
+  external.push_back(Real2D (-.175,1.515));
+  external.push_back(Real2D (-.175,2.015));
+  external.push_back(Real2D (-2.075,2.015));
 
   std::vector<Real2D> obstacle;
-  obstacle.push_back(Real2D (40.5,-4.5));
-  obstacle.push_back(Real2D (108.5,-4.5));
-  obstacle.push_back(Real2D (108.5,-.5));
-  obstacle.push_back(Real2D (40.5,-.5));
+  obstacle.push_back(Real2D (.405,-.045));
+  obstacle.push_back(Real2D (1.085,-.045));
+  obstacle.push_back(Real2D (1.085,-.05));
+  obstacle.push_back(Real2D (.405,-.05));
  
   internal.push_back(obstacle);
 }
