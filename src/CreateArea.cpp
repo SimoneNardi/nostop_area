@@ -29,21 +29,23 @@ void Create_StudioLucia(std::vector<Real2D> &external, std::vector< std::vector<
 /////////////////////////////////////////////////
 void Create_CorridoioING(std::vector<Real2D> &external, std::vector< std::vector<Real2D> > &internal)
 {
-  // Collect point from rviz or read configuration file if not available
-  external.push_back(Real2D (-207.5,-201.5));
-  external.push_back(Real2D (207.5,-201.5));
-  external.push_back(Real2D (207.5,201.5));
-  external.push_back(Real2D (-207.5,201.5));
+  external.push_back(Real2D (-5.9,0.)	);
+  external.push_back(Real2D (0.,0.) 	);
+  external.push_back(Real2D (0,-9.1)	);
+  external.push_back(Real2D (2.4,-9.1)	);
+  external.push_back(Real2D (2.4,3.4)	);
+  external.push_back(Real2D (-5.9,3.4)	);
 }
 
 /////////////////////////////////////////////////
 void Create_CorridoioPiaggio(std::vector<Real2D> &external, std::vector< std::vector<Real2D> > &internal)
 {
-  // Collect point from rviz or read configuration file if not available
-  external.push_back(Real2D (-207.5,-201.5));
-  external.push_back(Real2D (207.5,-201.5));
-  external.push_back(Real2D (207.5,201.5));
-  external.push_back(Real2D (-207.5,201.5));
+  external.push_back(Real2D (-5.9,0.)	);
+  external.push_back(Real2D (0.,0.) 	);
+  external.push_back(Real2D (0,-9.1)	);
+  external.push_back(Real2D (2.4,-9.1)	);
+  external.push_back(Real2D (2.4,3.4)	);
+  external.push_back(Real2D (-5.9,3.4)	);
 }
 
 /////////////////////////////////////////////////
