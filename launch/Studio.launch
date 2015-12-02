@@ -1,0 +1,8 @@
+<launch>
+  
+  <!--> Studio <!-->
+  <node pkg="nostop_area" type="nostop_area_node" name="$(anon nostop_area_Studio)" required="true" output="screen">
+    <param name="area_name" value="$(optenv ROS_AREA_NAME Studio)" />
+  </node>
+  
+</launch>

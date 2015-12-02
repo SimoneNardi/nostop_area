@@ -80,7 +80,7 @@ int main(int argc, char **argv)
       {
 	std::cout << "Enter the name of the area: ";
 	//std::cin >> l_name;
-	l_name="CorridoioING";//"Studio";
+	l_name="Empty";//"Studio";
 	ROS_ERROR("Nome non ricevuto: %s", l_name.c_str());
       }
       
