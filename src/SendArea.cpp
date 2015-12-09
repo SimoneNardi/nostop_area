@@ -58,6 +58,9 @@ bool SendArea_callback( nostop_area::AreaData::Request 	&req,
     }
     res.internal.push_back(l_shape);
   }
+  
+  ROS_DEBUG("Area Inviata\n");
+  
   return true;
 }
 
@@ -107,7 +110,7 @@ int main(int argc, char **argv)
 	  break;
       }
       
-      ros::ServiceServer l_service = l_node.advertiseService("AreaInitializer", SendArea_callback);
+      ros::ServiceServer l_service = l_node.advertiseService("/AreaInitializer", SendArea_callback);
       
       ROS_INFO("Ready to create area.");
       
