@@ -1,7 +1,7 @@
 <launch>
   
   <!--> Corridoio Centro Piaggio <!-->
-  <node pkg="nostop_area" type="nostop_area_node" name="$(anon nostop_area_CorridoioCentroPiaggio)" required="true" output="screen">
+  <node pkg="nostop_area" type="nostop_area_node" name="Area" required="true" output="screen">
     <param name="area_name" value="$(optenv ROS_AREA_NAME CorridoioPiaggio)" />
   </node>
   
