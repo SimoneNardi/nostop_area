@@ -11,4 +11,8 @@ void Create_Island(std::vector<Real2D> &external, std::vector< std::vector<Real2
 
 void Create_Harbour(std::vector<Real2D> &external, std::vector< std::vector<Real2D> > &internal);
 
+void Create_Acquario(std::vector<Real2D> &external, std::vector< std::vector<Real2D> > &internal);
+
 void Create_Empty(std::vector<Real2D> &external, std::vector< std::vector<Real2D> > &internal);
+
+void Create_Medium(std::vector<Real2D> &external, std::vector< std::vector<Real2D> > &internal);

@@ -16,6 +16,8 @@ enum AreaType
   CORRIDOIO_PIAGGIO,
   ISLAND,
   HARBOUR,
+  ACQUARIO,
+  MEDIUM,
   EMPTY
 };
 
@@ -32,6 +34,8 @@ void initAreaNameMap()
   g_name_map.insert( std::make_pair<std::string, AreaType>("CorridoioPiaggio", AreaType::CORRIDOIO_PIAGGIO) );
   g_name_map.insert( std::make_pair<std::string, AreaType>("Island", AreaType::ISLAND) );
   g_name_map.insert( std::make_pair<std::string, AreaType>("Harbour", AreaType::HARBOUR) );
+  g_name_map.insert( std::make_pair<std::string, AreaType>("Acquario", AreaType::ACQUARIO) );
+  g_name_map.insert( std::make_pair<std::string, AreaType>("Medium", AreaType::MEDIUM) );
   g_name_map.insert( std::make_pair<std::string, AreaType>("Empty", AreaType::EMPTY) );
 }
 
@@ -104,10 +108,16 @@ int main(int argc, char **argv)
 	case AreaType::HARBOUR:
 	  Create_Harbour(g_external, g_internal);
 	break;
+	case AreaType::ACQUARIO:
+	  Create_Acquario(g_external, g_internal);
+	break;
+	case AreaType::MEDIUM:
+	  Create_Medium(g_external, g_internal);
+	break;
 	case AreaType::EMPTY:
-	  Create_Empty(g_external, g_internal);
 	default:
-	  break;
+	  Create_Empty(g_external, g_internal);
+	break;
       }
       
       ros::ServiceServer l_service = l_node.advertiseService("/AreaInitializer", SendArea_callback);

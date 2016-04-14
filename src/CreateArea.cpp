@@ -38,6 +38,26 @@ void Create_CorridoioING(std::vector<Real2D> &external, std::vector< std::vector
 }
 
 /////////////////////////////////////////////////
+void Create_CorridoioUnipiPiano4(std::vector<Real2D> &external, std::vector< std::vector<Real2D> > &internal)
+{
+  external.push_back(Real2D (-1.8,0.)	);
+  external.push_back(Real2D (-1.8,3.) 	);
+  external.push_back(Real2D (-1.8,-9.1)	);
+  external.push_back(Real2D (2.4,-9.1)	);
+  external.push_back(Real2D (2.4,3.4)	);
+  external.push_back(Real2D (-5.9,3.4)	);
+}
+
+/////////////////////////////////////////////////
+void Create_Acquario(std::vector<Real2D> &external, std::vector< std::vector<Real2D> > &internal)
+{
+  external.push_back(Real2D (0.3,0.3)	);
+  external.push_back(Real2D (2.7,0.3) 	);
+  external.push_back(Real2D (2.7,6.3)	);
+  external.push_back(Real2D (0.3,6.3)	);
+}
+
+/////////////////////////////////////////////////
 void Create_CorridoioPiaggio(std::vector<Real2D> &external, std::vector< std::vector<Real2D> > &internal)
 {
   external.push_back(Real2D (-5.9,0.)	);
@@ -76,4 +96,15 @@ void Create_Empty(std::vector<Real2D> &external, std::vector< std::vector<Real2D
   external.push_back(Real2D (10.,-10.) );
   external.push_back(Real2D (10.,10.) );
   external.push_back(Real2D (-10.,10.) );
+}
+
+/////////////////////////////////////////////////
+void Create_Medium(std::vector<Real2D> &external, std::vector< std::vector<Real2D> > &internal)
+{
+  double param = 3;
+  // Collect point from rviz or read configuration file if not available
+  external.push_back(Real2D (-param,-param) );
+  external.push_back(Real2D (param,-param) );
+  external.push_back(Real2D (param,param) );
+  external.push_back(Real2D (-param,param) );
 }
